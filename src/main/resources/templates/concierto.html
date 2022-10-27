@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Lista Conciertos</div>
+        <h1 th:text="${titulo}"></h1>
+        <h1 th:text="#{concierto.concierto}"></h1>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Concierto</th>
+                    <th scope="col">Artista</th>
+                    <th scope="col">Costo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">capacidad</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="user : ${conciertos}">
+                    <tr>
+                        <td th:text="${user.getConcierto}"></td>
+                        <td th:text="${user.getArtista}"></td>
+                        <td th:text="${user.getCosto}"></td>
+                        <td th:text="${user.getFecha}"></td>
+                        <td th:text="${user.getLugar}"></td>
+                        <td th:text="${user.getCapacidad}"></td>
+                        <td>
+                            
+                            <a th:href="@{/deleteConcierto/{id}(id=${user.getId})}">Delete</a>
+                        </td>
+                        <td>
+                            <a th:href="@{/editConcierto/{id}(id=${user.getId})}">Edit</a>
+                        </td>
+                    </tr>
+                </tbody>
+              </table>
+            <a th:href="@{/conciertoN/}">Crear</a>
+        </div>
+    </body>
+</html>

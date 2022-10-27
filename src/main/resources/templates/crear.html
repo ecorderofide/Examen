@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">            
+            <div class="card-header bg-black text-white"> </div>            
+            <div class="card-body">                <!-------------------Esto es un Formulario--------------- -->                
+                <div class="container">                    
+                    <form th:object = "${concierto}"                          
+                          th:action="@{/save}"                          
+                          method="POST"                          >                        
+                        <input type="hidden" th:field="*{id}">                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="col-md-2 col-form-label" for="nombre">Nombre</label>                            
+                            <div class="col-sm-10">                                
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{concierto}"  placeholder= "Nombre Concierto" id="concierto" aria-describedby="emailHelp">                            
+                            </div>                        
+                        </div>                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="form-control-sm col-md-2  col-form-label" for="apellido1">Artista</label>                            
+                            <div class="col-sm-10">                                
+                                <select  th:field="*{artista}" class="form-control form-control-sm col-md-6" id="artista" aria-describedby="emailHelp">                                    
+                                    <option th:each="x:${artistas}"                                            th:value="${x.id}"                                            th:text="${x.artista}"/>                                </select>                            
+                            </div>                     
+                        </div>                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="form-control-sm col-form-label col-md-2" for="apellido2">Costo</label>                            
+                            <div class="col-sm-10">                                
+                                <input type="text" th:field="*{costo}" class="form-control form-control-sm col-md-6" placeholder= "costo" id="costo" aria-describedby="emailHelp">                            
+                            </div>                        
+                        </div>                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="form-control-sm col-form-label col-md-2" for="telefono">Fecha</label>                            
+                            <div class="col-sm-10">                                
+                                <input type="text" th:field="*{fecha}" class="form-control form-control-sm col-md-6" placeholder= "Fecha" id="fecha" aria-describedby="emailHelp">                            
+                            </div>                        
+                        </div>                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="form-control-sm  col-form-label col-md-2" for="email">Lugar</label>                            
+                            <div class="col-sm-10">                                
+                                <select  th:field="*{lugar}" class="form-control form-control-sm col-md-6" id="lugar" aria-describedby="emailHelp">                                    
+                                    <option th:each="x:${lugares}"                                            th:value="${x.id}"                                            th:text="${x.lugar}"/>                                </select>                            
+                            </div>                      
+                        </div>                        
+                        <div class="form-group mb-3 row">                            
+                            <label  class="form-control-sm col-form-label col-md-2" for="paises">Capacidad</label>                            
+                            <div class="col-sm-10">                                
+                                <input type="text" th:field="*capacidad}" class="form-control form-control-sm col-md-6" placeholder= "Capacidad" id="capacidad" aria-describedby="emailHelp">                            
+                            </div>                       
+                        </div>                        
+                        <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>                    
+                    </form>                
+                </div>            
+            </div>        
+        </div>
+        <div>TODO write content</div>
+    </body>
+</html>
